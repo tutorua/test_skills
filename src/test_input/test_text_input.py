@@ -25,7 +25,7 @@ class TextInputForm:
 
         # Required field check
         if not self.input_value.strip():
-            self.errors.append("This field is required")
+            self.errors.append("Error (required field)")
             return False
 
         # Length validation
@@ -147,7 +147,7 @@ class TestTextInputNegative:
         """Leave field empty and verify required field validation error."""
         text_form.set_input("")
         assert not text_form.validate()
-        assert "This field is required" in text_form.errors
+        assert "Error (required field)" in text_form.errors
 
     def test_enter_text_shorter_than_2_chars(self, text_form):
         """Enter text shorter than 2 characters and verify validation error."""
@@ -157,7 +157,7 @@ class TestTextInputNegative:
 
     def test_enter_text_longer_than_25_chars(self, text_form):
         """Enter text longer than 25 characters and verify it's rejected."""
-        long_text = "abcdefghijklmnopqrstuvwxyz123"  # 29 chars
+        long_text = "ABCDEFGHIJKLMNOPQRSTUVWXYZA"  # 27 chars
         text_form.set_input(long_text)
         assert not text_form.validate()
         assert "must not exceed 25 characters" in text_form.errors[0]
@@ -188,4 +188,4 @@ class TestTextInputNegative:
         result = text_form.submit()
         assert result is False
         assert text_form.submitted is False
-        assert "This field is required" in text_form.errors
+        assert "Error (required field)" in text_form.errors

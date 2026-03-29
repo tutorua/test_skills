@@ -25,7 +25,7 @@ class EmailFieldForm:
 
         # Required field check
         if not self.input_value.strip():
-            self.errors.append("Email is required")
+            self.errors.append("Please fill out this field")
             return False
 
         # Basic email format validation
@@ -161,6 +161,7 @@ class TestEmailFieldNegative:
             "@domain.com",  # missing local part
             "user name@domain.com",  # space in local part
             "user@domain..com",  # consecutive dots in domain
+            "user#name@example.com"  # invalid character #
         ]
 
         for email in invalid_emails:
@@ -203,4 +204,4 @@ class TestEmailFieldNegative:
         result = email_form.submit()
         assert result is False
         assert email_form.submitted is False
-        assert "Email is required" in email_form.errors
+        assert "Please fill out this field" in email_form.errors

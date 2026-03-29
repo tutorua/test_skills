@@ -25,32 +25,37 @@ class PasswordFieldForm:
 
         # Required field check
         if not self.input_value.strip():
-            self.errors.append("Password is required")
+            self.errors.append("Please fill out this field")
             return False
 
         # Minimum 8 characters
         if len(self.input_value) < 8:
-            self.errors.append("Password must be at least 8 characters long")
+            # self.errors.append("Password must be at least 8 characters long")
+            self.errors.append("Low password complexity")
             return False
 
         # At least one uppercase English letter
         if not re.search(r'[A-Z]', self.input_value):
-            self.errors.append("Password must contain at least one uppercase letter")
+            # self.errors.append("Password must contain at least one uppercase letter")
+            self.errors.append("Low password complexity")
             return False
 
         # At least one lowercase English letter
         if not re.search(r'[a-z]', self.input_value):
-            self.errors.append("Password must contain at least one lowercase letter")
+            # self.errors.append("Password must contain at least one lowercase letter")
+            self.errors.append("Low password complexity")
             return False
 
         # At least one digit
         if not re.search(r'[0-9]', self.input_value):
-            self.errors.append("Password must contain at least one digit")
+            # self.errors.append("Password must contain at least one digit")
+            self.errors.append("Low password complexity")
             return False
 
         # At least one special character
         if not re.search(r'[!@#$%^&*()_+\-=\[\]{};\':"\\|,.<>\/?]', self.input_value):
-            self.errors.append("Password must contain at least one special character")
+            # self.errors.append("Password must contain at least one special character")
+            self.errors.append("Low password complexity")
             return False
 
         return True
@@ -126,7 +131,7 @@ class TestPasswordFieldPositive:
             "Password1!",
             "Test123@",
             "Secure9#",
-            "Valid$456",
+            "c",
             "Strong%789",
             "Power^123",
             "Force&789",
@@ -167,7 +172,8 @@ class TestPasswordFieldPositive:
             "Passw5rd!",
             "Passwo6d!",
             "Passwor7!",
-            "Password8",
+            "Password8!",
+            "Strong1!",
             "!Password1",
             "@Password2",
             "#Password3",
@@ -199,7 +205,7 @@ class TestPasswordFieldNegative:
         for password in short_passwords:
             password_form.set_input(password)
             assert not password_form.validate(), f"Should fail for short password: {password}"
-            assert "at least 8 characters" in str(password_form.errors)
+            assert "Low password complexity" in str(password_form.errors)
 
     def test_enter_password_without_uppercase_letter(self, password_form):
         """Enter password without uppercase letter and verify validation error."""
@@ -212,7 +218,7 @@ class TestPasswordFieldNegative:
         for password in no_uppercase_passwords:
             password_form.set_input(password)
             assert not password_form.validate(), f"Should fail for no uppercase: {password}"
-            assert "uppercase letter" in str(password_form.errors)
+            assert "Low password complexity" in str(password_form.errors)
 
     def test_enter_password_without_lowercase_letter(self, password_form):
         """Enter password without lowercase letter and verify validation error."""
@@ -225,7 +231,7 @@ class TestPasswordFieldNegative:
         for password in no_lowercase_passwords:
             password_form.set_input(password)
             assert not password_form.validate(), f"Should fail for no lowercase: {password}"
-            assert "lowercase letter" in str(password_form.errors)
+            assert "Low password complexity" in str(password_form.errors)
 
     def test_enter_password_without_digit(self, password_form):
         """Enter password without digit and verify validation error."""
@@ -238,7 +244,7 @@ class TestPasswordFieldNegative:
         for password in no_digit_passwords:
             password_form.set_input(password)
             assert not password_form.validate(), f"Should fail for no digit: {password}"
-            assert "at least one digit" in str(password_form.errors)
+            assert "Low password complexity" in str(password_form.errors)
 
     def test_enter_password_without_special_character(self, password_form):
         """Enter password without special character and verify validation error."""
@@ -251,7 +257,7 @@ class TestPasswordFieldNegative:
         for password in no_special_passwords:
             password_form.set_input(password)
             assert not password_form.validate(), f"Should fail for no special char: {password}"
-            assert "special character" in str(password_form.errors)
+            assert "Low password complexity" in str(password_form.errors)
 
     def test_submit_empty_form_prevents_submission(self, password_form):
         """Try submitting empty form and verify validation prevents submission."""
@@ -259,4 +265,4 @@ class TestPasswordFieldNegative:
         result = password_form.submit()
         assert result is False
         assert password_form.submitted is False
-        assert "Password is required" in password_form.errors
+        assert "Please fill out this field" in password_form.errors

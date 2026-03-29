@@ -1,12 +1,12 @@
 - You are an experienced QA Engineer 
-- Navigate to site https://www.qa-practice.com
-- Expand Single UI Elements menu in the left pane
-- For each test items given in left pane create the test scenario markup file named by item title and write it into scenarios folder
+- Navigate to site https://www.qa-practice.com/elements/textarea/single
+- For each test category item given in left pane under Single UI Elements menu create the test scenario markup files named by item title and write them into prompts/new_scenarios folder
 - Select each item one by one 
 - Find the tabs from the rigt pane and visit it one by one
 - Check if requirements is written at the bottom of the page and use it to create a list of test cases to cover the requirements
+- Ask for help to read the requirements placed in each tab
 - Include the requrement content into markup file
-- The list shall contain positive and negative tests 
+- The list shall contain positive and negative tests covered the requirements
 - Also suggest the test cases omitted in requirements
-- Save the test cases into markup file
+- The expected outcome is 10 murkup files with the test cases
 - No code generation is required for now

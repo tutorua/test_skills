@@ -1,0 +1,26 @@
+[     204ms] [WARNING] jQuery.Deferred exception: handleToggleNavProfile is not defined ReferenceError: handleToggleNavProfile is not defined
+    at Object.initSidebar (https://www.qa-practice.com/static/home/js/main.js:211:114)
+    at Object.init (https://www.qa-practice.com/static/home/js/main.js:208:53)
+    at HTMLDocument.<anonymous> (https://www.qa-practice.com/static/home/js/main.js:235:9)
+    at mightThrow (https://code.jquery.com/jquery-3.6.2.js:3831:29)
+    at process (https://code.jquery.com/jquery-3.6.2.js:3899:12) undefined @ https://code.jquery.com/jquery-3.6.2.js:4114
+[     216ms] Uncaught ReferenceError: handleToggleNavProfile is not defined
+    at initSidebar (https://www.qa-practice.com/static/home/js/main.js:210:113)
+    at init (https://www.qa-practice.com/static/home/js/main.js:207:52)
+    at <anonymous> (https://www.qa-practice.com/static/home/js/main.js:234:8)
+    at mightThrow (https://code.jquery.com/jquery-3.6.2.js:3830:28)
+    at process (https://code.jquery.com/jquery-3.6.2.js:3898:11)
+[     402ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://www.qa-practice.com/elements/assets/dist/js/bootstrap.bundle.min.js:0
+[     402ms] [ERROR] Refused to execute script from 'https://www.qa-practice.com/elements/assets/dist/js/bootstrap.bundle.min.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. @ https://www.qa-practice.com/elements/iframe/iframe_album:0
+[     407ms] [WARNING] jQuery.Deferred exception: handleToggleNavProfile is not defined ReferenceError: handleToggleNavProfile is not defined
+    at Object.initSidebar (https://www.qa-practice.com/static/home/js/main.js:211:114)
+    at Object.init (https://www.qa-practice.com/static/home/js/main.js:208:53)
+    at HTMLDocument.<anonymous> (https://www.qa-practice.com/static/home/js/main.js:235:9)
+    at mightThrow (https://code.jquery.com/jquery-3.6.2.js:3831:29)
+    at process (https://code.jquery.com/jquery-3.6.2.js:3899:12) undefined @ https://code.jquery.com/jquery-3.6.2.js:4114
+[     416ms] Uncaught ReferenceError: handleToggleNavProfile is not defined
+    at initSidebar (https://www.qa-practice.com/static/home/js/main.js:210:113)
+    at init (https://www.qa-practice.com/static/home/js/main.js:207:52)
+    at <anonymous> (https://www.qa-practice.com/static/home/js/main.js:234:8)
+    at mightThrow (https://code.jquery.com/jquery-3.6.2.js:3830:28)
+    at process (https://code.jquery.com/jquery-3.6.2.js:3898:11)

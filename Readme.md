@@ -32,6 +32,8 @@ python -m pytest src/test_input -v --alluredir allure-results
 python -m pytest src/test_input/test_text_input.py -v --alluredir allure-results
 python -m pytest src/test_input/test_email_field.py -v --alluredir allure-results
 
+python -m pytest src/test_radio/test_radio_button.py -v --alluredir allure-results
+
 
 ### Open Allure report
 
