@@ -42,3 +42,7 @@ allure open
 
 or 
 allure serve
+
+## Test results
+![Alt text for the image](test_input.png)
+
